@@ -2,104 +2,122 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* =====================================================
+   Roomly — Trust-focused design system. All HSL.
+   ===================================================== */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 30 33% 98%;
+    --foreground: 222 30% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 222 30% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 222 30% 12%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Brand: deep teal (trust) + warm coral accent */
+    --primary: 184 65% 28%;
+    --primary-foreground: 30 33% 98%;
+    --primary-glow: 184 70% 42%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 184 30% 95%;
+    --secondary-foreground: 184 65% 22%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 42%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 14 90% 62%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --success: 152 60% 38%;
+    --success-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
 
-    --radius: 0.5rem;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --sidebar-background: 0 0% 98%;
+    --border: 220 16% 90%;
+    --input: 220 16% 90%;
+    --ring: 184 65% 28%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --radius: 0.875rem;
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(184 65% 28%) 0%, hsl(184 70% 42%) 50%, hsl(170 60% 50%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(184 30% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(14 90% 62%) 0%, hsl(24 95% 58%) 100%);
+    --gradient-soft: linear-gradient(135deg, hsl(184 30% 95%) 0%, hsl(30 33% 98%) 100%);
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(184 30% 20% / 0.08);
+    --shadow-elegant: 0 14px 40px -16px hsl(184 65% 28% / 0.25);
+    --shadow-glow: 0 0 60px hsl(184 70% 42% / 0.35);
+    --shadow-card: 0 4px 20px -4px hsl(220 30% 20% / 0.08);
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    /* Motion */
+    --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-base: all 0.3s var(--ease-out-soft);
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 30% 12%;
+    --sidebar-primary: 184 65% 28%;
+    --sidebar-primary-foreground: 30 33% 98%;
+    --sidebar-accent: 184 30% 95%;
+    --sidebar-accent-foreground: 184 65% 22%;
+    --sidebar-border: 220 16% 90%;
+    --sidebar-ring: 184 65% 28%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 222 35% 8%;
+    --foreground: 30 33% 98%;
+    --card: 222 32% 11%;
+    --card-foreground: 30 33% 98%;
+    --popover: 222 32% 11%;
+    --popover-foreground: 30 33% 98%;
+    --primary: 184 70% 50%;
+    --primary-foreground: 222 35% 8%;
+    --primary-glow: 184 80% 60%;
+    --secondary: 222 25% 16%;
+    --secondary-foreground: 30 33% 98%;
+    --muted: 222 25% 16%;
+    --muted-foreground: 220 10% 65%;
+    --accent: 14 90% 62%;
+    --accent-foreground: 0 0% 100%;
+    --success: 152 60% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 55%;
+    --warning-foreground: 0 0% 0%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 25% 18%;
+    --input: 222 25% 18%;
+    --ring: 184 70% 50%;
+    --gradient-hero: linear-gradient(135deg, hsl(184 65% 22%) 0%, hsl(184 70% 35%) 50%, hsl(170 60% 40%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(222 32% 11%) 0%, hsl(222 35% 9%) 100%);
+    --shadow-elegant: 0 14px 40px -16px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 60px hsl(184 80% 60% / 0.25);
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground antialiased; font-feature-settings: "ss01", "cv11"; }
+  h1, h2, h3, h4 { @apply tracking-tight; }
+}
 
-  body {
-    @apply bg-background text-foreground;
-  }
+@layer utilities {
+  .bg-gradient-hero { background: var(--gradient-hero); }
+  .bg-gradient-card { background: var(--gradient-card); }
+  .bg-gradient-accent { background: var(--gradient-accent); }
+  .bg-gradient-soft { background: var(--gradient-soft); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .text-balance { text-wrap: balance; }
 }
