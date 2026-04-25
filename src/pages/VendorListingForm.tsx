@@ -32,7 +32,8 @@ export default function VendorListingForm() {
   const { toast } = useToast();
   const [busy, setBusy] = useState(false);
   const [images, setImages] = useState<string[]>([]);
-  const [form, setForm] = useState({ title: "", location: "", price: "", description: "", room_type: "private_room" as const });
+  type RoomType = "private_room" | "shared_room" | "studio" | "entire_place";
+  const [form, setForm] = useState<{ title: string; location: string; price: string; description: string; room_type: RoomType }>({ title: "", location: "", price: "", description: "", room_type: "private_room" });
 
   useEffect(() => {
     if (!isEdit || !id) return;
